@@ -10,13 +10,13 @@
     <link rel="stylesheet" href="/Users/urielchavez/dev/22-homework/TannedAlbino/MicroblogAPI/public/css/reset.css">  
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="/Users/urielchavez/dev/22-homework/TannedAlbino/MicroblogAPI/public/css/styles.css">
+    
+    <link rel="stylesheet" href="/Users/urielchavez/dev/22-homework/TannedAlbino/MicroBlogAPI/public/css/styles.css">
 
     <!-- VENDOR SCRIPTS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
+   
     <!-- APPLICATION SCRIPTS -->
     <script src="/Users/urielchavez/dev/22-homework/TannedAlbino/MicroblogAPI/public/base.js"></script>
   </head>
@@ -24,32 +24,47 @@
   <nav>
   Welcome to the frustration blog, where you can vent to nobody who cares.
   </nav>
-  <section class="interface scheme-white">
-   <formid="form" action="action_page.php">
+  <form id="new-blog-form" class= "form-inline" action="action_page.php">
+    <!-- <section class="interface scheme-white"> -->
+   
       <h1>What would you like to talk about?</h1>
     
-      <input id='blog-input' type="text" autofocus="true">
+      <input name="blog" id='blog-input' type="text" autofocus="true" class="form-control" placeholder="What boggles you?">
+      <input name="author" id='author-input' type="text" autofocus="true" class="form-control" placeholder="Anonymous">
       <br>
       <input id="button" type="submit" value="Submit">
-    </form>
-  </section>
+   <!-- </section> -->
+  </form>
+  
   
   <section class="frustrations">
     <div class="frustration">
       <h3 class="title scheme-pink">
         Yell silently
       </h3>
-      <p class="content scheme-yellow">
-        Mongod is not theGod, just aGod </p>
+      <ul class="list-group" id="blog-ul">
+      <% for (var i=0; i<blogs.length; i++) { %>
+        <li class="list-group-item">
+          <h4 class="list-group-item-heading"><%= blogs[i].blog %></h4>
+          <span class='list-group-item-text'><%= blogs[i].author %></span>
+          <button data-id="<%=blogs[i].id %>" type= "button" class='close' label='Close'<span aria-hidden='true'>&times;</span></button>
+          })
+        </li>
+      <% } %>
+      </ul>
+   <!--    <p class="content scheme-yellow">
+        Mongod is not theGod, just aGod </p> -->
     </div>
     
-  </section>  
-    <div class="container">
+  </section>    
+
+    
+    <!-- <div class="container">
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
           
         </div>
       </div>
-    </div>
+    </div> -->
   </body>
 </html>

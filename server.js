@@ -3,20 +3,20 @@ var express = require("express");
 var bodyParser = require('body-parser');
 var app = express();
 var mongoose = require("mongoose");
-// var db = require("./model");
+// var db = require("./models");
 var path = require("path");
 mongoose.connect("mongodb://localhost/test");
-app.set("view engine", ".ejs");
+app.set("view engine", "ejs");
 app.use("/static", express.static('public'));
 app.use(bodyParser.json());
 console.log("variables loaded");
 
-var Schema = mongoose.Schema;
-var BlogSchema = new Schema({
-	blogPost: String,
-	author: String
-});
-var Blog = mongoose.model('Blog', BlogSchema);
+// var Schema = mongoose.Schema;
+// var BlogSchema = new Schema({
+// 	blogPost: String,
+// 	author: String
+// });
+// var Blog = mongoose.model('Blog', BlogSchema);
 
 app.get('/', function(request, response){
 	response.render('index');
