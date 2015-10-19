@@ -3,13 +3,26 @@ function where(arr, properties){
 	var obj;
 	for (var i=0; i<arr.length; i++){
 		obj = arr[i];
-		for (var key in obj) {
+		match = true;
+		for (var key in properties) {
 			if (obj.hasOwnProperty(key) && obj[key] === properties[key]) {
-				output = obj;
+			
+			} else {
+				match = false;
+
+				break;
 			}
 		}
+			if (match){
+
+				return obj;
+			}	
+			
+			
+		}
+		return null;
 	}
-	return output;
-}
+	
+
 
 module.exports = where;
